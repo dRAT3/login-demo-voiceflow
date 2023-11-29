@@ -14,7 +14,7 @@ export const RuntimeContext = createContext<RuntimeContextValue | null>(null);
 export const RuntimeProvider: React.FC<React.PropsWithChildren> = ({ children }) => {
   const emitter = useMemo(() => createNanoEvents<RuntimeEvents>(), []);
   const runtime = useRuntime({
-    verify: { projectID: '65423ee96a2a540007613de5', versionID:'production' },
+    verify: { projectID: import.meta.env.VF_PROJECT_ID , versionID:'production' },
     session: { userID: `anonymous-${Math.random()}` },
     traces: [LoginTrace],
   });
